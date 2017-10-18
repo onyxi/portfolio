@@ -1,0 +1,28 @@
+<% include partials/header %>
+    
+    
+    <div class="ui middle aligned center aligned grid">
+        <div id="loginSegment" class="column">
+            <div class="ui segment">
+                <form id="loginForm" class="ui large form" action="/login" method="POST">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <button class="ui  fluid large blue button" type="submit">Login</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+ 
+ 
+<% include partials/footer %>

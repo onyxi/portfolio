@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        <title>Pete Holdsworth</title>
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <script src="https://use.fontawesome.com/3aecc79570.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Handlee|Pacifico" rel="stylesheet">
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous">
+        </script>
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        </head>
+        
+        <body>
+            <a href="/">
+                <div id="headerImageDiv" style="background-image:url('/assets/images/siteImages/bannerImage_Forest.jpg');">
+                    <div class="centered">
+                        <h1 id="headerText">
+                            Pete Holdsworth
+                        </h1>
+                    </div>
+                </div>
+            </a>
+            <div class="ui inverted pointing menu">
+                <a class="item" href="/projects">
+                    <i class="sticky note icon"></i> Projects
+                </a>
+                <a class="item" href="/about">
+                    <i class="info circle icon"></i> About
+                </a>
+                <div class="right menu">
+                    <% if (!currentUser) { %>
+                        <a class="ui item" href="/login">
+                            <i class="user icon"></i> Login
+                        </a>
+                    <% } else { %>
+                        <a class="ui item" href="/logout">
+                            <i class="user icon"></i> Logout
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+            
+        

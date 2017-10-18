@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+
+    <% var published = "off grey";
+    if (project.published ==  true) {
+        published = "on teal";
+    } %>
+
+    <div class="ui container segment">    
+        <div class="ui grid">
+            <div class="ui eleven wide left floated column">
+                <h1 id="titleText" class="ui huge header"><%=project.title%></h1>
+            </div>
+            <% if (currentUser) { %>
+                <div class="ui five wide right floated right aligned column">
+                    <h1 class="ui large header"><i id="publishedIcon" class="toggle <%=published%> icon"></i></h1>
+                </div>
+            <% } %>
+        </div>
+        <div>
+            <img class="ui rounded image" src="/assets/images/projectImages/<%=project.mainImageName%>">
+        </div>
+        <div class="ui segment">
+            <p>
+                <%- project.text%>
+            
+            </p>
+
+        </div>
+        
+        <% if (project.videoCode) { %>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://www.youtube.com/embed/<%=project.videoCode%>" frameborder="0" allowfullscreen></iframe>
+            </div>
+        <% } %>
+        
+        <% if (currentUser) { %>
+            <div class="ui divider"></div>  
+            <div>
+                <a class="ui fluid large olive button" href="/projects/<%=project._id%>/edit">Edit</a>
+            </div>
+        <% } %>
+        
+    
+    </div>    
+
+
+    
+<% include ../partials/footer %>

@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+
+    <div class="ui container segment">
+        <div>
+            <h1 id="titleText" class="ui huge center aligned header">
+                Add New Project
+            </h1>
+        </div>
+        <form class="ui large form" action="/projects" method="POST" encType="multipart/form-data">
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="title" placeholder="Title ...">
+            </div>
+            <div class="field">
+                <label>Main Image</label>
+                <input type="file" name="mainImageFile" class="form-control-file">
+            </div>
+            <div class="field">
+                <label>Caption</label>
+                <input type="text" name="caption" placeholder="Caption ...">
+            </div>
+            <div class="field">
+                <label>Description</label>
+                <textarea name="text" placeholder="Description ..."></textarea>
+            </div>
+            <div class="field">
+                <label>Video</label>
+                <input type="text" name="videoCode" placeholder="Youtube Code ...">
+            </div>
+            <div class="field">
+                <label>Extra Image</label>
+                <input type="file" name="extraImageFile" class="form-control-file">
+            </div>
+            <div class="ui right aligned grid">
+                <div class="sixteen wide column">
+                    <div class="ui checkbox">
+                        <input id="fun" type="checkbox" name="publish">
+                        <label for="fun">Publish project?</label>
+                    </div>        
+                </div>
+            </div>
+            <button class="ui fluid large blue submit button" type="submit">Submit</button>
+        </form>
+        <div class="ui divider"></div>
+        <a class="ui fluid large button" href="/projects/:id">Cancel</a>
+    </div>
+
+<% include ../partials/footer %>

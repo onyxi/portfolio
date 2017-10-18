@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pete Holdsworth</title>
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.js"
+          integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+          crossorigin="anonymous">
+        </script>
+        <script>
+            
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+        <script src="https://use.fontawesome.com/3aecc79570.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Handlee|Pacifico" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+    </head>
+    <body>
+    
+  
+    
+    <div id="landing-header" class="container">
+        <a href="/projects">
+            <h1>Pete Holdsworth</h1>
+        </a>
+		<div>
+		    <a href="/projects" class="ui primary large button">View Portfolio</a>
+		</div>
+    </div>
+    
+    <ul class="slideshow">
+        <% var imageOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 
+        
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+        
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+        
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+        
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+        
+            return array;
+        } 
+        imageOrder = shuffle(imageOrder) %>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[0]%>.jpg);"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[1]%>.jpg); animation-delay: 10s;"></li> 
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[2]%>.jpg); animation-delay: 20s;"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[3]%>.jpg); animation-delay: 30s;"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[4]%>.jpg); animation-delay: 40s;"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[5]%>.jpg); animation-delay: 50s;"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[6]%>.jpg); animation-delay: 60s;"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[7]%>.jpg); animation-delay: 70s;"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[8]%>.jpg); animation-delay: 80s;"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[9]%>.jpg); animation-delay: 90s;"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[10]%>.jpg); animation-delay: 100s;"></li>
+        <li style="background-image: url(/assets/images/siteImages/<%=imageOrder[11]%>.jpg); animation-delay: 110s;"></li>
+    </ul>
+        
+    <% include partials/footer %>

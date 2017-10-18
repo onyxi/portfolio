@@ -1,0 +1,65 @@
+<% include ../partials/header %>
+
+    <!--Display list of projects -->
+    <div id="indexGrid" class="ui stackable three column grid">
+        
+        <!--Display project tile only if the project is published, or if the admin is logged in-->
+        <% projects.forEach(function(project){
+            if (project.published == true) {
+                createProjectTile(project);
+            } else {
+                if (currentUser) {
+                    createProjectTile(project);
+                };
+            }; 
+        });
+        
+        // Create project tile
+        function createProjectTile(project) { 
+            var published = "off grey";
+            if (project.published == true) {
+                published = "on teal";
+            } %>
+            <div class="column">
+                <div class="ui segment">
+                    <div class="row">
+                        <div class="ui left floated column">
+                            <a href="/projects/<%= project._id %>">
+                                <h1 id="titleText" class="ui medium header"><%=project.title%></h1>
+                            </a>
+                        </div>
+                        <% if (currentUser) { %>
+                            <div class="ui right floated column">
+                                <h1 class="ui small header"><i id="publishedIcon" class="toggle <%=published%> icon"></i></h1>
+                            </div>
+                        <% } %>
+                    </div>
+                    <a href="/projects/<%= project._id %>">
+                        <img class="ui rounded image" src="/assets/images/projectImages/<%=project.mainImageName%>">
+                    </a>
+                    <div class="ui divider"></div>
+                    <p>
+                        <%= project.caption %>
+                    </p>
+                </div>
+            </div>
+        <% }; %>
+        
+    </div>    
+        
+    <!--Display button to add new project - only if admin logged in-->
+    <% if (currentUser) {%>
+    <a href="/projects/new">
+        <button id="addProjectBtn" class="ui blue labeled icon button">
+            <i class="plus icon"></i>
+            Add
+        </button>
+    </a>
+    <% } %>
+    
+
+    
+   
+
+<% include ../partials/footer %>
+

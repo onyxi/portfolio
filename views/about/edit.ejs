@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+    <div class="ui container segment">    
+        <div>
+            <h1 id="titleText" class="ui huge center aligned header">
+                Edit Page
+            </h1>
+        </div>
+        <form class="ui large form" action="/about?_method=PUT" method="POST" encType="multipart/form-data">
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="title" value="<%=about.title%>">
+            </div>
+            <div class="field">
+                <label>Profile Image</label>
+                <% if (about.profileImageName) { %>
+                    <p>Current image: <%=about.profileImageName%></p>
+                <% } %>
+                <input type="file" name="profileImageFile" class="form-control-file" value="<%=about.profileImageName%>">
+            </div>
+            <div class="field">
+                <label>Text</label>
+                <textarea name="text"><%=about.text%></textarea>
+            </div>
+            <button class="ui fluid large blue submit button" type="submit">Submit</button>
+        </form>
+        <div class="ui divider"></div>
+        <a class="ui fluid large button" href="/about">Cancel</a>
+    </div>
+    
+ 
+    
+<% include ../partials/footer %>

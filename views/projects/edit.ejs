@@ -1,0 +1,60 @@
+<% include ../partials/header %>
+    
+    <div class="ui container segment">    
+        <div>
+            <h1 id="titleText" class="ui huge center aligned header">
+                Edit <%=project.title%>
+            </h1>
+        </div>
+        <form class="ui large form" action="/projects/<%=project._id%>?_method=PUT" method="POST" encType="multipart/form-data">
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="title" value="<%=project.title%>">
+            </div>
+            <div class="field">
+                <label>Main Image</label>
+                <% if (project.mainImageName) { %>
+                    <p>Current image: <%=project.mainImageName%></p>
+                <% } %>
+                <input type="file" name="mainImageFile" class="form-control-file" value="<%=project.mainImageName%>">
+            </div>
+            <div class="field">
+                <label>Caption</label>
+                <input type="text" name="caption" value="<%=project.caption%>">
+            </div>
+            <div class="field">
+                <label>Description</label>
+                <textarea name="text"><%=project.text%></textarea>
+            </div>
+            <div class="field">
+                <label>Video</label>
+                <input type="text" name="videoCode" value="<%=project.videoCode%>">
+            </div>
+            <div class="field">
+                <label>Extra Image</label>
+                <% if (project.extraImageName) { %>
+                    <p>Current image: <%=project.extraImageName%></p>
+                <% } %>
+                <input type="file" name="extraImageFile" class="form-control-file" value="<%=project.extraImageName%>">
+            </div>
+            <div class="ui right aligned grid">
+                <div class="sixteen wide column">
+                    <div class="ui checkbox">
+                        <% var checkedStatus = (project.published == true) ? "checked" : " " %> 
+                        <input id="fun" type="checkbox" name="publish" <%=checkedStatus%>>
+                        <label for="fun">Publish project?</label>
+                    </div>        
+                </div>
+            </div>
+            <button class="ui fluid large blue submit button" type="submit">Submit</button>
+        </form>
+        <div class="ui divider"></div>
+        <a class="ui fluid large button" href="/projects/<%=project._id%>">Cancel</a>
+        <div class="ui divider"></div>
+            <form action="/projects/<%=project._id%>?_method=DELETE" method="POST">
+            <button class="ui fluid large red button" href="/projects/<%=project._id%>">Delete Project</button>
+        </form>
+
+    </div>
+
+<% include ../partials/footer %>
